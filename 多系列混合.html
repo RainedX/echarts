@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script>
+    <title>demo</title>
+    <style>
+      #container {
+        width: 800px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      let container = document.getElementById('container');
+      let chart = echarts.init(container);
+
+      const options = {
+        title: {
+          text: 'echarts 多系列案例',
+        },
+        xAxis: {
+          data: ['一季度', '二季度', '三季度', '四季度'],
+        },
+        yAxis: {},
+        series: [
+          {
+            type: 'bar',
+            data: [100, 80, 90, 150],
+          },
+          {
+              type: 'line',
+              data: [100, 80, 90, 150]
+          },
+          {
+            type: 'pie',
+            center: [300, 60],
+            radius: 35,
+            data: [
+              {
+                name: '分类1',
+                value: 50,
+              },
+              {
+                name: '分类2',
+                value: 50,
+              },
+              {
+                name: '分类3',
+                value: 100,
+              },
+              {
+                name: '分类4',
+                value: 150,
+              },
+            ],
+          },
+        ],
+      };
+      chart.setOption(options);
+    </script>
+  </body>
+</html>
