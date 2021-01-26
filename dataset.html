@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script>
+    <title>demo</title>
+    <style>
+      #container {
+        width: 800px;
+        height: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container"></div>
+    <script>
+      let container = document.getElementById('container');
+      let chart = echarts.init(container);
+
+      const options = {
+        title: {
+          text: 'echarts dataset',
+        },
+        xAxis: {
+          data: ['一季度', '二季度', '三季度', '四季度'],
+        },
+        yAxis: {},
+        dataset: {
+          source: [
+            ['一季度', 100, 100, '分类1', 50],
+            ['二季度', 80, 80, '分类2', 50],
+            ['三季度', 90, 90, '分类3', 100],
+            ['四季度', 150, 150, '分类4', 150],
+          ],
+        },
+        series: [
+          {
+            type: 'bar',
+            encode: { x: 0, y: 1 },
+          },
+          {
+            type: 'line',
+            encode: { x: 0, y: 2 },
+          },
+          {
+            type: 'pie',
+            center: [300, 60],
+            radius: 35,
+            encode: {
+              itemName: 3,
+              value: 4,
+            },
+          },
+        ],
+      };
+      chart.setOption(options);
+    </script>
+  </body>
+</html>
